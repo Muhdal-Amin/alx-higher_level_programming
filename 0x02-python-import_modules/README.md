@@ -1,0 +1,1 @@
+This directory contains my project files for the Python import modules course at ALX Holberton school.
