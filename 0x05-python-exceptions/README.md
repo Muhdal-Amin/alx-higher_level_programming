@@ -1,0 +1,1 @@
+This directory contains my project files for my Python - Exceptions course at the ALX Holberton school.
