@@ -1,13 +1,13 @@
-The ``matrix_mul`` module
+The ``lazy_matrix_mul`` module
 ===============================================================================
 
-Using ``matrix_mul``
+Using ``lazy_matrix_mul``
 -------------------------------------------------------------------------------
 
 
 Import matrix_mul from 100-matrix_mul
 
-    >>> matrix_mul = __import__('100-matrix_mul').matrix_mul
+    >>> matrix_mul = __import__('101-lazy_matrix_mul').lazy_matrix_mul
 
 It should raise exception if 'm_a' is not lists
 
@@ -144,4 +144,5 @@ It should return the right answer
     >>> m_a = [[1, 2, 3], [3, 2, 1]]
     >>> m_b = [[1, 2, 3], [3, 2, 1], [1, 2, 3]]
     >>> matrix_mul(m_a, m_b)
-    [[10, 12, 14], [10, 12, 14]]
+    array([[10, 12, 14],
+           [10, 12, 14]])
