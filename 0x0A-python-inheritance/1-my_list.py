@@ -1,12 +1,10 @@
 #!/usr/bin/python3
-"""Defines MyList function"""
+"""Class MyList"""
+
 
 class MyList(list):
-    """The __init__ method initialize"""
-    def __init__(self):
-        """empty class"""
-        pass
-
+    """A  list class"""
     def print_sorted(self):
-        """inherits from list"""
-        print(sorted(self))
+        """Prints the sorted list"""
+        if issubclass(MyList, list):
+            print(sorted(self))
