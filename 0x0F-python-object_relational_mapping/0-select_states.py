@@ -5,7 +5,7 @@ import MySQLdb
 
 
 if __name__ == "__main__":
-    #script arguments
+    # script arguments
     mysql_username = argv[1]
     mysql_password = argv[2]
     database_name = argv[3]
