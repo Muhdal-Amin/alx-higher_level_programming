@@ -1,22 +1,22 @@
 #!/usr/bin/python3
-"""A script that lists all states from the database"""
-import sys
+"""A script that lists all states from the database hbtn_0e_usa"""
+from sys import argv
 import MySQLdb
 
 
-def select_states():
-    """Gets states from the databse"""
+if __name__ == "__main__":
+    #script arguments
+    mysql_username = argv[1]
+    mysql_password = argv[2]
+    database_name = argv[3]
 
-    username = sys.argv[1]
-    password = sys.argv[2]
-    database = sys.argv[3]
-
-    db = MySQLdb.connect(host='localhost',
-                           port=3306,
-                           user=username,
-                           passwd=password,
-                           db=database
-                           )
+    db = MySQLdb.connect(
+        host='localhost',
+        port=3306,
+        user=mysql_username,
+        passwd=mysql_password,
+        database=database_name,
+    )
 
     cursor = db.cursor
     cursor.execute("SELECT * FROM states ORDER BY id ASC")
@@ -27,7 +27,3 @@ def select_states():
 
     cursor.close()
     db.close()
-
-
-if __name__ == "__main__":
-    select_states()
