@@ -1,19 +1,16 @@
 #!/usr/bin/python3
-"""
-First states
-"""
+"""A script that prints the first state object"""
 from sqlalchemy import text
 from sqlalchemy.orm import sessionmaker
 from sqlalchemy import create_engine
 from model_state import Base, State
-import sys
+from sys import argv
 
 
-def fetch_first():
-    """Prints first state object in the database"""
-    username = sys.argv[1]
-    password = sys.argv[2]
-    database = sys.argv[3]
+if __name__ == "__main__":
+    username = argv[1]
+    password = argv[2]
+    database = argv[3]
 
     engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'.format(
         username, password, database), pool_pre_ping=True)
@@ -28,7 +25,3 @@ def fetch_first():
     else:
         print("Nothing")
     session.close()
-
-
-if __name__ == "__main__":
-    fetch_first()
