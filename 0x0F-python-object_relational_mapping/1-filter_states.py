@@ -1,33 +1,35 @@
 #!/usr/bin/python3
-"""lists all states with a name starting with N from the database"""
-
-
-from sys import argv
+"""Filter States"""
 import MySQLdb
+import sys
+
+
+def filter_states():
+    """Filter states from database by listing all states
+    with a name starting with N (upper N)
+    """
+    username = sys.argv[1]
+    password = sys.argv[2]
+    database = sys.argv[3]
+
+    db = MySQLdb.connect(host='localhost',
+                         port=3306,
+                         user=username,
+                         passwd=password,
+                         db=database
+                         )
+    cur = db.cursor()
+    cur.execute("SELECT *\
+                FROM states\
+                WHERE name LIKE BINARY 'N%'\
+                ORDER BY id ASC"
+                )
+    rows = cur.fetchall()
+    for row in rows:
+        print(row)
+    cur.close()
+    db.close()
+
 
 if __name__ == "__main__":
-    # script arguments
-    mysql_username = argv[1]
-    mysql_password = argv[2]
-    database_name = argv[3]
-
-    db = MySQLdb.connect(
-        host="localhost",
-        port=3306,
-        user=mysql_username,
-        passwd=mysql_password,
-        database=database_name,
-    )
-
-    cursor = db.cursor()
-
-    cursor.execute("SELECT * FROM state WHERE name LIKE BINARY\
-     'N%'ORDER BY id ASC ")
-
-    myresults = cursor.fetchall()
-
-    for x in myresult:
-        print(x)
-
-    cursor.close()
-    db.close()
+    filter_states()
