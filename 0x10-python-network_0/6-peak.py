@@ -20,7 +20,7 @@ def find_peak(list_of_integers):
         if (j < size - 1 and
                 list_of_integers[j] < list_of_integers[j + 1]):
             if i // 2 == 0:
-               i = 2
+                i = 2
             j = j + i // 2
         elif i > 0 and list_of_integers[j] < list_of_integers[j - 1]:
             if i // 2 == 0:
